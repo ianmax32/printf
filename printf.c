@@ -37,14 +37,9 @@ int _printf(const char *format, ...)
 				if (format[a + 1] != '%' && format[a + 1] == links[b].formatChar)
 				{
 					links[b].f(s);
-					a++;
 				}
 			}
-<<<<<<< HEAD
-=======
-			a++;
 			_putchar(format[a]);
->>>>>>> refs/remotes/origin/master
 		}
 		else
 			_putchar(format[a]);
