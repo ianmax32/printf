@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[a] == '%')
 		{
-			for (b = 0; b < 3; b++)
+			for (b = 0; b < 2; b++)
 			{
 				if (format[a + 1] != '%' && format[a + 1] == links[b].formatChar)
 				{
