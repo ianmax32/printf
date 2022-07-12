@@ -27,27 +27,26 @@ int _printf(const char *format, ...)
 	va_start(s, format);
 	a = 0;
 	counter = 0;
-	b = 0;
 
 	while (format[a])
 	{
 		if (format[a] == '%')
 		{
-			b = 0;
-			while (b < 3)
+			for (b = 0; b < 3; b++)
 			{
-				if (format[a+1] == links[b].formatChar)
+				if (format[a + 1] != '%' && format[a + 1] == links[b].formatChar)
 				{
 					links[b].f(s);
+					a++;
 				}
-				b++;
 			}
 			a++;
+			_putchar(format[a]);
 		}
 		else
 			_putchar(format[a]);
-		counter++;
 		a++;
+		counter++;
 	}
 
 	return (counter);
