@@ -23,8 +23,7 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (0);
-	
-	printf("Hello world");
+
 	va_start(s, format);
 	a = 0;
 	counter = 0;
