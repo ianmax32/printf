@@ -34,15 +34,20 @@ int _printf(const char *format, ...)
 		{
 			for (b = 0; b < 2; b++)
 			{
-				if (format[a + 1] != '%' && format[a + 1] == links[b].formatChar)
+				if (format[a + 1] == links[b].formatChar)
 				{
 					links[b].f(s);
+					a += 2;
+				}
+				if (format[a + 1] == '%')
+				{
+					_putchar(format[a]);
+					a++;
+					break;
 				}
 			}
-			_putchar(format[a]);
 		}
-		else
-			_putchar(format[a]);
+		 _putchar(format[a]);
 		a++;
 		counter++;
 	}
