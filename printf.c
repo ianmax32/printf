@@ -28,26 +28,27 @@ int _printf(const char *format, ...)
 	a = 0;
 	counter = 0;
 
-	while (format[a])
+	for (a = 0; format[a]; a++)
 	{
 		if (format[a] == '%')
 		{
 			for (b = 0; b < 2; b++)
 			{
-				if (format[a + 1] != '%' && format[a + 1] == links[b].formatChar)
+				if (format[a + 1] == links[b].formatChar)
 				{
 					links[b].f(s);
+					a += 2;
+				}
+
+				if (format[a + 1] == '%')
+				{
 					a++;
 				}
 			}
-			a++;
-			_putchar(format[a]);
 		}
-		else
-			_putchar(format[a]);
-		a++;
+		_putchar(format[a]);
 		counter++;
 	}
-
+	va_end(s);
 	return (counter);
 }
