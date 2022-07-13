@@ -5,34 +5,42 @@
 /**
  * printNum - prints int recursively
  * @a: arg
+ * Return: count
  */
 
-void printNum(int a)
+int printNum(int a)
 {
-	int digit;
+	int num, count;
 
+	count = 0;
 	if ((a / 10) != 0)
 	{
 		printNum(a / 10);
+		count++;
 	}
-	digit = (a % 10) + '0';
-	write(1, &digit, 1);
+	num = (a % 10) + '0';
+	write(1, &num, 1);
+	return (count);
 }
 
 /**
  * printDec - prints decimal numbers
  * @s: points to the decimal to be printed
+ * Return: count
  */
 
-void printDec(va_list s)
+int printDec(va_list s)
 {
-	int i;
+	int i, count;
 
+	count = 0;
 	i = va_arg(s, int);
 	if (i < 0)
 	{
 		_putchar('-');
+		count++;
 		i = -i;
 	}
-	printNum(i);
+	count += printNum(i);
+	return (count);
 }

@@ -3,18 +3,22 @@
 /**
  * printString - function prints string from a va_list
  * @s:argument parameter
- * Return:0
+ * Return: count
  */
 
-void printString(va_list s)
+int printString(va_list s)
 {
 	char *i;
+	int count;
 
 	i = va_arg(s, char *);
+	count = 0;
 
 	while (*i != '\0')
 	{
 		_putchar(*i);
 		i++;
+		count++;
 	}
+	return (count);
 }

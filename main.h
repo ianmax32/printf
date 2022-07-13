@@ -5,13 +5,13 @@
 typedef struct formatToFunc
 {
 	char formatChar;
-	void (*f)();
+	int (*f)();
 } ftFunc_t;
 
 int _putchar(char s);
-void printString(va_list s);
-void printChar(va_list s);
-void printDec(va_list s);
+int printString(va_list s);
+int printChar(va_list s);
+int printDec(va_list s);
 int _printf(const char *format, ...);
 
 #endif /*MAIN_H*/
