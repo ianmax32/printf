@@ -23,11 +23,8 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (0);
-
 	va_start(s, format);
-	a = 0;
 	counter = 0;
-
 	for (a = 0; format[a]; a++)
 	{
 		if (format[a] == '%')
@@ -39,8 +36,6 @@ int _printf(const char *format, ...)
 					links[b].f(s);
 					a += 2;
 				}
-
-
 				if (format[a + 1] == '%')
 				{
 					a++;
