@@ -39,26 +39,16 @@ int _printf(const char *format, ...)
 					links[b].f(s);
 					a += 2;
 				}
-<<<<<<< HEAD
+
 
 				if (format[a + 1] == '%')
 				{
-=======
-				if (format[a + 1] == '%')
-				{
-					_putchar(format[a]);
->>>>>>> refs/remotes/origin/master
 					a++;
-					break;
 				}
 			}
 		}
-<<<<<<< HEAD
-		_putchar(format[a]);
-=======
 		 _putchar(format[a]);
 		a++;
->>>>>>> refs/remotes/origin/master
 		counter++;
 	}
 	va_end(s);
