@@ -32,6 +32,7 @@ void printDec(va_list s)
 	if (i < 0)
 	{
 		_putchar('-');
+		i = -i;
 	}
 	printNum(i);
 }
