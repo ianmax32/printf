@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 		return (0);
 	va_start(s, format);
 	counter = 0;
-	for (a = 0; format[a] != '\0';  a++)
+	for (a = 0; format[a];  a++)
 	{
 		if (format[a] == '%')
 		{
@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 				}
 			}
 		}
-		 counter += _putchar(format[a]);
+		counter += _putchar(format[a]);
 	}
 	va_end(s);
 	printf("%d\n", counter);

@@ -13,6 +13,6 @@ int printChar(va_list s)
 	char d;
 
 	d = va_arg(s, int);
-	write(1, &d, 1);
-	return (1);
+	return (write(1, &d, 1));
+
 }
