@@ -27,32 +27,26 @@ int _printf(const char *format, ...)
 		return (0);
 	va_start(s, format);
 	counter = 0;
-	for (a = 0; format[a] != '\0';  a++)
+
+	for (a = 0; format[a] != '\0'; a++)
 	{
 		if (format[a] == '%')
 		{
 			for (b = 0; b < 4; b++)
 			{
-				if (format[a + 1] == links[b].formatChar)
+				if (format[a + 1] != '%' && format[a + 1] == links[b].formatChar)
 				{
 					counter += links[b].f(s);
-					/*printf("%c, int was %d\n", links[b].formatChar, counter);*/
-					a++;		
-					/*if (format[a + 1] != 's' && format[a + 1] == 'c')
-						counter--;
-					if (format[a + 1] != 's' && format[a + 1] != 'c')
-						counter++;*/
+					a++;	
 				}
-				/*if (format[a + 1] == '%')
-				{
-					a++;
-				}*/
 			}
 			a++;
-			counter += _putchar(format[a]);
+			_putchar(format[a]);
+		
 		}
-		else
-			counter += _putchar(format[a]);
+		_putchar(format[a]);
+		counter++;
+
 	}
 	va_end(s);
 	printf("%d\n", counter);
