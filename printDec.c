@@ -39,8 +39,8 @@ int printDec(va_list s)
 	{
 		_putchar('-');
 		count++;
-		i = -i;
+		i = (-1) * i;
 	}
 	count += printNum(i);
-	return (count);
+	return (count++);
 }

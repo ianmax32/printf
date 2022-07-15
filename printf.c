@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 		return (0);
 	va_start(s, format);
 	counter = 0;
-	for (a = 0; format[a];  a++)
+	for (a = 0; format[a] != '\0';  a++)
 	{
 		if (format[a] == '%')
 		{
@@ -36,16 +36,25 @@ int _printf(const char *format, ...)
 				if (format[a + 1] == links[b].formatChar)
 				{
 					counter += links[b].f(s);
-					a += 2;
+					/*printf("%c, int was %d\n", links[b].formatChar, counter);*/
+					a++;		
+					/*if (format[a + 1] != 's' && format[a + 1] == 'c')
+						counter--;
+					if (format[a + 1] != 's' && format[a + 1] != 'c')
+						counter++;*/
 				}
-				if (format[a + 1] == '%')
+				/*if (format[a + 1] == '%')
 				{
 					a++;
-				}
+				}*/
 			}
+			a++;
+			counter += _putchar(format[a]);
 		}
-		counter += _putchar(format[a]);
+		else
+			counter += _putchar(format[a]);
 	}
 	va_end(s);
+	printf("%d\n", counter);
 	return (counter);
 }

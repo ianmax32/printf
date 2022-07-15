@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
+#include <unistd.h>
 /**
  * printString - function prints string from a va_list
  * @s:argument parameter
@@ -16,7 +17,7 @@ int printString(va_list s)
 
 	while (*i != '\0')
 	{
-		_putchar(*i);
+		write(1, i, 1);
 		i++;
 		count++;
 	}

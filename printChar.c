@@ -14,5 +14,4 @@ int printChar(va_list s)
 
 	d = va_arg(s, int);
 	return (write(1, &d, 1));
-
 }
