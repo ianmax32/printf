@@ -36,19 +36,18 @@ int _printf(const char *format, ...)
 				if (format[a + 1] == links[b].formatChar)
 				{
 					counter += links[b].f(s);
-					/*printf("%c, int was %d\n", links[b].formatChar, counter);*/
-					a++;		
-					/*if (format[a + 1] != 's' && format[a + 1] == 'c')
+					if (format[a + 1] == 's' || format[a + 1] == 'c')
 						counter--;
-					if (format[a + 1] != 's' && format[a + 1] != 'c')
-						counter++;*/
+					if (format[a + 1] == 'i' || format[a + 1] == 'd')
+						counter++;
+					a += 2;
 				}
-				/*if (format[a + 1] == '%')
+				if (format[a + 1] == '%')
 				{
 					a++;
-				}*/
+					counter--;
+				}
 			}
-			a++;
 			counter += _putchar(format[a]);
 		}
 		else
