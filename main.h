@@ -2,6 +2,14 @@
 #define MAIN_H
 #include <stdarg.h>
 
+/**
+ * struct formatToFunc - struct defines how to link the character
+ * to a function
+ * @formatChar:argument param representing parameter
+ * @f:function to ren on character
+ * Description: link char to a function
+ */
+
 typedef struct formatToFunc
 {
 	char formatChar;
