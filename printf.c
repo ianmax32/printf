@@ -42,7 +42,6 @@ int _printf(const char *format, ...)
 			}
 			a++;
 			_putchar(format[a]);
-			counter++;
 		}
 		else
 			_putchar(format[a]);
